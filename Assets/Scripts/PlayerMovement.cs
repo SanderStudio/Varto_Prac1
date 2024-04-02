@@ -23,5 +23,10 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(0,0, horizontalMovement);
         transform.Translate(-verticalMovement, 0, 0);
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("Triggered " + other.gameObject.name);
     }
 }
