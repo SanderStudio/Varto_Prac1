@@ -6,27 +6,18 @@ public class PlayerMovement : MonoBehaviour
 {
     [Range(0f, 10f)]
     [SerializeField] private float playerSpeed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        float horizontalMovement = Input.GetAxis("Horizontal") * playerSpeed;
-        float verticalMovement = Input.GetAxis("Vertical") * playerSpeed;
+        float horizontalMovement = Input.GetAxis("Vertical") * playerSpeed;
+        float verticalMovement = Input.GetAxis("Horizontal") * playerSpeed;
 
         horizontalMovement *= Time.deltaTime;
         verticalMovement *= Time.deltaTime;
 
         transform.Translate(0,0, horizontalMovement);
-        transform.Translate(-verticalMovement, 0, 0);
+        transform.Translate(verticalMovement, 0, 0);
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("Triggered " + other.gameObject.name);
-    }
+    
 }
